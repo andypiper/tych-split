@@ -1,5 +1,7 @@
 
+# TODO: docs and license stuff
 # FIXME: figure out edge cases where images can't be split
+# TODO: add film reel information to  contact sheet
 # TODO: format for contact sheet / template (link to images?)
 # TODO: add additional EXIF data / set custom text
 # FIXME: remove hard-coded string values (EXIF, etc)
@@ -49,6 +51,7 @@ def create_contact_sheet(output_dir, images):
 
     # Add heading text with title and date/time
     pdfmetrics.registerFont(TTFont('Komika', 'KOMIKAX_.ttf'))
+    pdfmetrics.registerFont(TTFont('OpenSans', 'OpenSans-Regular.ttf'))
     c.setFont("Komika", 16)
     c.drawCentredString(width / 2.0, height - margin, title)
     c.setFont("Courier", 12)
@@ -76,7 +79,7 @@ def create_contact_sheet(output_dir, images):
         # Draw the image
         c.drawImage(image_path, x, y, width=image_width, height=image_height)
         # Include the filename below the image
-        c.setFont("Helvetica", 8)
+        c.setFont("OpenSans", 8)
         c.drawString(x, y - 10, os.path.basename(image_path))  # Filename
 
         # Update the x position for the next image
