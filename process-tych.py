@@ -1,4 +1,3 @@
-
 # FIXME: figure out edge cases where images can't be split
 # TODO: add film reel information to  contact sheet
 # TODO: format for contact sheet / template (link to images?)
