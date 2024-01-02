@@ -2,6 +2,8 @@
 
 Process [Alfie TYCH](https://alfiecameras.com/) film images into individual half frames.
 
+![Illustration of output](./example.png)
+
 This script processes images from a [TYCH](https://alfiecameras.com/) camera, which exposes two half frames on each frame of 35mm film. The script splits the images into individual half frames. It also adds EXIF information (currently hard-coded in the code). It can also optionally generate a contact sheet for each roll of film / directory processed.
 
 I wrote about my first use of the TYCH [here](https://andypiper.co.uk/2023/11/27/half-frame-photography/).
