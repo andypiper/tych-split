@@ -1,0 +1,24 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "process-tych"
+version = "0.1.0"
+description = "Process Alfie TYCH film images into individual half frames."
+authors = ["Andy Piper <andypiper@omg.lol>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.21.0"
+opencv-python-headless = "^4.5.3"
+Pillow = "^8.3.1"
+piexif = "^1.1.3"
+reportlab = "^3.5.68"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
