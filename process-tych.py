@@ -17,7 +17,7 @@ import numpy as np
 import piexif
 from PIL import Image
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.units import cm
+from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -38,9 +38,9 @@ def create_contact_sheet(output_dir, images):
     c = canvas.Canvas(pdf_path, pagesize=A4)
     title="Alfie TYCH"
     width, height = A4
-    margin = cm * 2
+    margin = mm * 20
     images_per_row = 4
-    padding = cm * 0.5  # Space between images
+    padding = mm * 5  # Space between images
     image_width = (width - (2 * margin) - ((images_per_row - 1) * padding)) / images_per_row
     image_height = image_width * 1.5  # portrait orientation images
 
@@ -86,7 +86,7 @@ def create_contact_sheet(output_dir, images):
         c.drawImage(image_path, x, y, width=image_width, height=image_height)
         # Include the filename below the image
         c.setFont("OpenSans", 8)
-        c.drawString(x, y - 10, os.path.basename(image_path))
+        c.drawString(x, y - 10, os.path.basename(image_path)) # FIXME: would be nice to centre this
 
         # Update the x position for the next image
         x += image_width + padding
