@@ -41,12 +41,12 @@ Pass the `--with-contact-sheet` option to generate a contact sheet for each roll
 
 ## License
 
-MIT License. See `LICENSE` for more information.
+MIT License. See [`LICENSE`](./LICENSE) for more information.
 
 ### Acknowledgements
 
-This script use Komika Axis font by Vigilante Typeface Corporation. See `LICENSE-KOMIKA.txt` for more information.
+This script use Komika Axis font by Vigilante Typeface Corporation. See [`LICENSE-KOMIKA.txt`](./LICENSE-KOMIKA.txt) for more information.
 
-This script uses Open Sans font by Steve Matteson. See `LICENSE-OPEN-SANS.txt` for more information.
+This script uses Open Sans font by Steve Matteson. See [`LICENSE-OPEN-SANS.txt`](./LICENSE-OPEN-SANS.txt) for more information.
 
 This code is not affiliated with [Alfie Cameras](https://alfiecameras.com/).
