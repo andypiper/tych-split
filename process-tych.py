@@ -48,12 +48,20 @@ def create_contact_sheet(output_dir, images):
     images.sort()
 
     # Add heading text with title and date/time
+    # Why these fonts? because they are free, look nice, and match Alfie branding
     pdfmetrics.registerFont(TTFont('Komika', 'KOMIKAX_.ttf'))
     pdfmetrics.registerFont(TTFont('OpenSans', 'OpenSans-Regular.ttf'))
     c.setFont("Komika", 16)
     c.drawCentredString(width / 2.0, height - margin, title)
     c.setFont("Courier", 12)
     c.drawCentredString(width / 2.0, height - margin - 20, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+    # Set PDF metadata
+    c.setTitle("Alfie TYCH contact sheet")
+    c.setSubject("Photography contact sheet")
+    c.setAuthor("Andy Piper")
+    c.setCreator(f"{os.path.basename(sys.argv[0])} version 0.1.0")
+    c.setProducer(f"{os.path.basename(sys.argv[0])} via ReportLab")
 
     # Initialize the starting position
     x = margin
@@ -78,7 +86,7 @@ def create_contact_sheet(output_dir, images):
         c.drawImage(image_path, x, y, width=image_width, height=image_height)
         # Include the filename below the image
         c.setFont("OpenSans", 8)
-        c.drawString(x, y - 10, os.path.basename(image_path))  # Filename
+        c.drawString(x, y - 10, os.path.basename(image_path))
 
         # Update the x position for the next image
         x += image_width + padding
@@ -148,6 +156,8 @@ def update_exif_data(input_path, output_path, image):
     exif_dict['0th'][piexif.ImageIFD.Orientation] = 1  # Normal orientation
     # FIXME: set Copyright from some input value
     exif_dict['0th'][piexif.ImageIFD.Copyright] = "Copyright, Andy Piper, 2023. All rights reserved."
+    exif_dict['0th'][piexif.ImageIFD.ProcessingSoftware] = f"{os.path.basename(sys.argv[0])} version 0.1.0" # TODO: should add program version info
+    exif_dict['0th'][piexif.ImageIFD.DocumentName] = f"{input_path}"
 
     height, width, _ = image.shape
     exif_dict['0th'][piexif.ImageIFD.ImageWidth] = width
